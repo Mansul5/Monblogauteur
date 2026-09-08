@@ -1,0 +1,6 @@
+{
+  "name": "Souleymane Thiao — Écrits & Récits",
+  "description": "Plateforme d'auteur de Souleymane Thiao : romans à chapitres, nouvelles et chroniques en afrofantasy, thriller et science-fiction.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

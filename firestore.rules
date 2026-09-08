@@ -1,0 +1,29 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Works catalog: readable by anyone
+    match /works/{workId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Chapters: readable by anyone
+    match /chapters/{chapterId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Pen names: readable by anyone
+    match /penNames/{penNameId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Comments & Reviews: readable by anyone, can be created by readers
+    match /comments/{commentId} {
+      allow read: if true;
+      allow create: if request.resource.data.content is string && request.resource.data.authorName is string;
+      allow update, delete: if true;
+    }
+  }
+}

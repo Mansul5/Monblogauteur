@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Souleymane Thiao Author Portfolio Database",
+  "entities": {
+    "works": {
+      "title": "Works",
+      "description": "Literary novels and short stories",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "penNameId": { "type": "string" },
+        "type": { "type": "string", "enum": ["roman", "nouvelle"] },
+        "status": { "type": "string", "enum": ["en_cours", "termine", "one_shot", "brouillon"] },
+        "genres": { "type": "array", "items": { "type": "string" } },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "shortDescription": { "type": "string" },
+        "fullDescription": { "type": "string" },
+        "coverUrl": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" },
+        "viewsCount": { "type": "number" }
+      },
+      "required": ["id", "title", "penNameId", "type", "status", "genres", "coverUrl"]
+    },
+    "chapters": {
+      "title": "Chapters",
+      "description": "Chapters belonging to serial works or short stories",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "workId": { "type": "string" },
+        "chapterNumber": { "type": "number" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "status": { "type": "string", "enum": ["publie", "brouillon"] },
+        "publishedAt": { "type": "string" },
+        "wordCount": { "type": "number" },
+        "readingTimeMinutes": { "type": "number" }
+      },
+      "required": ["id", "workId", "chapterNumber", "title", "content", "status", "publishedAt"]
+    },
+    "penNames": {
+      "title": "PenNames",
+      "description": "Author pen names and artistic alter-egos",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "tagline": { "type": "string" },
+        "genreFocus": { "type": "string" },
+        "bio": { "type": "string" }
+      },
+      "required": ["id", "name", "tagline", "genreFocus", "bio"]
+    },
+    "comments": {
+      "title": "Comments",
+      "description": "Reader reviews and comments on works or chapters",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "targetType": { "type": "string", "enum": ["work", "chapter"] },
+        "targetId": { "type": "string" },
+        "authorName": { "type": "string" },
+        "content": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "likes": { "type": "number" },
+        "pinned": { "type": "boolean" },
+        "isAuthorReply": { "type": "boolean" },
+        "parentId": { "type": ["string", "null"] }
+      },
+      "required": ["id", "targetType", "targetId", "authorName", "content", "createdAt"]
+    }
+  }
+}

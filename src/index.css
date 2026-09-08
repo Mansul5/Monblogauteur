@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Cinzel', Georgia, serif;
+    --font-ornate: 'Cinzel Decorative', Georgia, serif;
+    --font-serif-reading: 'Newsreader', Georgia, serif;
+    --font-sans-reading: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-mono-reading: 'JetBrains Mono', monospace;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+.font-ornate {
+  font-family: var(--font-ornate);
+}
+.font-serif-reading {
+  font-family: var(--font-serif-reading);
+}
+.font-sans-reading {
+  font-family: var(--font-sans-reading);
+}
+.font-mono-reading {
+  font-family: var(--font-mono-reading);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0c16;
+}
+::-webkit-scrollbar-thumb {
+  background: #232942;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #38426c;
+}
